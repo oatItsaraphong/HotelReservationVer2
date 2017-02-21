@@ -1,5 +1,7 @@
 Hotel Reservation Application
 
+Version 1
+
 Using Lamp server
 
 contain: html, php, javascript
