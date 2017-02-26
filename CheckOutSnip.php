@@ -58,6 +58,23 @@ $(document).ready(function()
 
         <h2> Check Out</h2>
         <br>
+
+        <form action="CheckOutPayment.php" method="post">
+            <div class='panel panel-danger'>
+                <div class='panel-heading'> Check Out </div>
+                <div class='panel-body'>
+                    <div class="form-group">
+                        <label for="CheckOutID">ID to Check Out: </label>
+                        <input type="number" class="form-control" name="CheckOutID" placeholder="ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="DiscountInfo">Discount Or Additional Payment(- to discount/  none to additinal): </label>
+                        <input type="number" class="form-control" name="DiscountInfo" placeholder="100/-100">
+                    </div>
+                    <input type='submit' class='btn btn-block btn-danger' value="Check Out">
+                </div>
+            </div>
+        </form>
         <table width=100% height=30 bgcolor="blue"><tr></tr></table>
 
     </div>

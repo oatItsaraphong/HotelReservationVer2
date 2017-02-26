@@ -1,3 +1,14 @@
+
+<html>
+<head>
+<title>Check Out Confirmation</title>
+<meta name="Content-Type" content="text/html; charset=utf8"/>
+        <link rel="stylesheet" type="text/css" href="theme.css">
+
+</head>
+
+<body>
+
 <div id="wrapper">
 	<table width=100% height=30 bgcolor="brown"><tr></tr>
 	</table>
@@ -5,7 +16,7 @@
         <br>
         <div id="professor">
             <strong>Add Guest</strong>
-        <form action="AddGuest.php" method="POST">
+        <form action="AddGuestInsert.php" method="POST">
 		<table>
 			<tr>
 	        	<td>Enter Guest Name:</td>
@@ -41,3 +52,5 @@
     	</div>
 
 </div>
+</body>
+</html>

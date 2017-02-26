@@ -3,7 +3,7 @@ $(function(){
 
 	$('#AddGuestBTN').click(function(){
 		console.log("Guest");
-		$('.MainBODY').load('AddGuest.html');
+		$('.MainBODY').load('AddGuest.php');
 	});
 
 	$('#ReservationBTN').click(function(){

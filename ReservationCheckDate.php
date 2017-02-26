@@ -84,11 +84,11 @@ $(document).ready(function()
                     </div>
                     <div class="form-group">
                         <label for="FromInfo">Reservation From: </label>
-                        <input type="text" class="form-control" name="FromInfo" placeholder="....." required>
+                        <input type="text" class="form-control" name="FromInfo" placeholder="....." >
                     </div>
                     <div class="form-group">
                         <label for="Additional">Comment: </label>
-                        <input type="text" class="form-control" name="Additional" placeholder="....." required>
+                        <input type="text" class="form-control" name="Additional" placeholder="....." >
                     </div>
                     <input type='submit' value="Next" class="checkRoom">
                 </div>

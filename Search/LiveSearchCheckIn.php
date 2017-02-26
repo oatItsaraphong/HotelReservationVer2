@@ -13,11 +13,21 @@
         // Attempt select query execution
         //$sql = "SELECT * FROM GuestTable WHERE GuestName LIKE '" . $term . "%'";
         //$sql = "SELECT * FROM GuestTable WHERE GuestName LIKE '" . $term . "%'";
-        
-        $sql = "SELECT ReservationID, GuestName, Statue, GuestIDNum, ReservedForGuest, CheckInDate, CheckOutDate
+        $date = date('Y-m-d');
+
+        $sql =" SELECT GuestName, ReservationID, Statue, ReservedForGuest, CheckInDate, CheckOutDate, ReservedRoom From GuestTable, ReservationTable 
+            WHERE (GuestIDNum IN (SELECT ReservedForGuest 
+                                FROM ReservationTable
+                                 WHERE ReservedRoom = '".$term."'". 
+            "AND Statue = 'Check In')) AND ReservedRoom = '".$term."'".
+            "AND Statue = 'Check In' "; 
+        /*
+        $sql = "SELECT ReservationID, GuestName, Statue, GuestIDNum, ReservedForGuest, CheckInDate, CheckOutDate, ReservedRoom
                  FROM ReservationTable, GuestTable 
                  WHERE Statue = 'Check In' 
-                 AND GuestIDNum = ReservedForGuest AND GuestName LIKE '".$term."%'";
+                 AND GuestIDNum = ReservedForGuest AND GuestName LIKE '".$term."%'".
+                 "OR ReservedRoom LIKE '".$term."%'";
+        */
         
         if($result = mysqli_query($Rlink, $sql))
         {
@@ -27,6 +37,7 @@
                 echo "<table border = 2><tr>"
                     ."<th>ReservationID</th>"
                     ."<th>GuestName</th>"
+                    ."<th>Room</th>"
                     ."<th>CheckInDate</th>"
                     ."<th>CheckOutDate</th>"
                     ."<th>NumberOfGuest</th>"
@@ -35,6 +46,7 @@
                 {
                     echo "<tr><td>".$row['ReservationID']."</td>"
                         ."<td>".$row['GuestName']."</td>"
+                        ."<td>".$row['ReservedRoom']."</td>"
                         ."<td>".$row['CheckInDate']."</td>"
                         ."<td>".$row['CheckOutDate']."</td>"
                         ."<td>".$row['NumberOfGuest']."</td>"
