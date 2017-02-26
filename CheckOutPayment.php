@@ -37,6 +37,7 @@
 
 	//echo $_SESSION["passOn"];
 
+
 	if($_POST[DiscountInfo] != NULL)
 	{
 		//retrive employee ID to keep the record
@@ -52,6 +53,7 @@
 		$row = mysqli_fetch_assoc($in);
 		$User = $row['EmployeeID'];
 
+
 		//update the Discount and Amount needed to pay
 		$change = "UPDATE ReservationTable
 				SET DiscountPercent = '$_POST[DiscountInfo]',
@@ -66,6 +68,7 @@
 			BackToMainBTN();
 			exit();
 		}
+	
 	}
 	else
 	{

@@ -69,7 +69,7 @@ $(document).ready(function()
                     </div>
                     <div class="form-group">
                         <label for="DiscountInfo">Discount Or Additional Payment(- to discount/  none to additinal): </label>
-                        <input type="number" class="form-control" name="DiscountInfo" placeholder="100/-100">
+                        <input type="number" class="form-control" name="DiscountInfo" placeholder="100/-100" required>
                     </div>
                     <input type='submit' class='btn btn-block btn-danger' value="Check Out">
                 </div>

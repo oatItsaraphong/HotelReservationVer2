@@ -13,7 +13,7 @@
 <body>
      <div id="wrapper"> 
 
-	<h2> Confirmation Page with Payment </h2>
+	<h2> Confirmation Reservation</h2>
 	<br>
     <?php
         header('Content-Type: text/html; charset=utf8');
@@ -21,7 +21,7 @@
 	require "functionUse.php";
 
 	$link = LoginDB($_SESSION['User'],$_SESSION['Pass']);
-    mysqli_set_charset($Rlink,"utf8");
+    mysqli_set_charset($link,"utf8");
 
 
 	$_SESSION["Room"] = $_POST['RoomNumAv'];
