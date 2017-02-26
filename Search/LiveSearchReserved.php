@@ -1,9 +1,9 @@
 
 <?php
     //Use as a live search for GuestName
-
-    require "configHotel.php";
-    $Rlink = LoginDB($_POST["feededUser"],$_POST["feededPass"]);
+    session_start();
+    require "../configHotel.php";
+    $Rlink = LoginDB($_SESSION['User'],$_SESSION['Pass']);
     mysqli_set_charset($Rlink,"utf8");
 
     // Escape user inputs for security
@@ -13,20 +13,35 @@
         //$sql = "SELECT * FROM GuestTable WHERE GuestName LIKE '" . $term . "%'";
         //$sql = "SELECT * FROM GuestTable WHERE GuestName LIKE '" . $term . "%'";
         
-        $sql = "SELECT ReservationID, GuestName, Statue, GuestIDNum, ReservedForGuest
+        $sql = "SELECT ReservationID, GuestName, Statue, GuestIDNum, ReservedForGuest, CheckInDate, CheckOutDate
                  FROM ReservationTable, GuestTable 
-                 WHERE Statue = 'Check In' 
+                 WHERE Statue = 'Reserved' 
                  AND GuestIDNum = ReservedForGuest AND GuestName LIKE '".$term."%'";
         
         if($result = mysqli_query($Rlink, $sql))
         {
             if(mysqli_num_rows($result) > 0)
             {
+
+                echo "<table border = 2><tr>"
+                    ."<th>ReservationID</th>"
+                    ."<th>GuestName</th>"
+                    ."<th>CheckInDate</th>"
+                    ."<th>CheckOutDate</th>"
+                    ."<th>NumberOfGuest</th>"
+                    ."</tr>";
+
                 while($row = mysqli_fetch_array($result))
                 {
-                    echo "<p>" . $row['GuestName'] ."---".$row['ReservationID']."</p>";
+                    echo "<tr><td>".$row['ReservationID']."</td>"
+                        ."<td>".$row['GuestName']."</td>"
+                        ."<td>".$row['CheckInDate']."</td>"
+                        ."<td>".$row['CheckOutDate']."</td>"
+                        ."<td>".$row['NumberOfGuest']."</td>"
+                        ."</tr>";
                 }
                 // Close result set
+                echo "</table>";
                 mysqli_free_result($result);
             } 
             else

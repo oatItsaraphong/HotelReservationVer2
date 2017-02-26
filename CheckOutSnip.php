@@ -27,7 +27,7 @@ $(document).ready(function()
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length)
         {
-            $.get("LiveSearchCheckIn.php", {term: inputVal}).done(function(data){
+            $.get("Search/LiveSearchCheckIn.php", {term: inputVal}).done(function(data){
                 // Display the returned data in browser
                 resultDropdown.html(data);
             });
@@ -52,19 +52,12 @@ $(document).ready(function()
     <div id="wrapper">
         <div class="search-box">
         <input type="text" autocomplete="off" placeholder="Search Name..." />
+        <p>--------------------------------------------</p>
         <div class="result"></div>
         </div>
 
-
         <h2> Check Out</h2>
         <br>
-
-    <?php
-        echo "TEST  <br>";
-        echo $_SESSION["User"];
-        echo $_SESSION["Pass"];
-        //echo $_SESSION["Link"];
-    ?>
         <table width=100% height=30 bgcolor="blue"><tr></tr></table>
 
     </div>

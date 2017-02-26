@@ -8,7 +8,7 @@ $(function(){
 
 	$('#ReservationBTN').click(function(){
 		console.log("Rsvp");
-		$('.MainBODY').load('CheckInSnip.php');
+		$('.MainBODY').load('ReservationCheckDate.php');
 	});
 
 	$('#CheckInBTN').click(function(){
@@ -27,6 +27,13 @@ $(function(){
 
 	$('#SearchAllGuestBTN').click(function(){
 		$('.MainBODY').load('SearchAllGuest.php');
+	});
+
+	$('.checkRoom').click(function(){
+		console.log('$_POST["DateIn"]');
+		//$('.MainBODY').empty();
+
+		$('.MainBODY').load('CheckOutSnip.php');
 	});
 
 	

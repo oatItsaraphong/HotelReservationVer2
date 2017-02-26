@@ -1,9 +1,10 @@
 
 <?php
     //Use as a live search for GuestName
-
-    require "configHotel.php";
-    $Rlink = LoginDB($_POST["feededUser"],$_POST["feededPass"]);
+    session_start();
+    require "../configHotel.php";
+    
+    $Rlink = LoginDB($_SESSION['User'],$_SESSION['Pass']);
     mysqli_set_charset($Rlink,"utf8");
 
     // Escape user inputs for security

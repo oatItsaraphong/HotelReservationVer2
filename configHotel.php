@@ -1,12 +1,19 @@
 <?php
 
+function BackToMainBTN(){
+
+	echo "<a href='MainPage.php' align='right' type='button' class='btn btn-block btn-warning'>Back to Main Page</a><br>";
+}
+
 function LoginDB ($inUser, $inPass){
 	$host = "localhost";
 	$database = "HotelDB";
+	$UserDB = "root";
+	$UserPass = "toukoSQL";
 
 	//Link to SQL
 	//$link = mysqli_connect($host, $inUser, $inPass, $database);
-	$link = mysqli_connect($host, "root", "toukoSQL", $database);
+	$link = mysqli_connect($host, $UserDB, $UserPass, $database);
 	if(mysqli_connect_errno())
 	{
 		echo "Fail to Connect::".msqli_connect_errno();
@@ -43,7 +50,8 @@ function ExamPassword($inUser, $inPass, $inLink){
 		echo "fail";
 		return 0;
 	}
-	else{
+	else
+	{
 
 		//if return empty then their is not record on the database
 		// therefore not exist / wrong 
@@ -56,6 +64,4 @@ function ExamPassword($inUser, $inPass, $inLink){
 	}
 	return 1;
 }
-
-
 ?>
