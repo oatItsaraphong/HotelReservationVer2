@@ -10,6 +10,7 @@ Map
 Index.php
 |
 MainPage.php
+
 	- AddGuest.html -> AddGuestInsert.php
 
 	- ReservationCheckDate.php -> RoomReservation.php -> ExeRoomReservation.php
