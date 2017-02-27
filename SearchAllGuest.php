@@ -27,7 +27,7 @@ $(document).ready(function()
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length)
         {
-            $.get("LiveSearchSearchAllGuest.php", {term: inputVal}).done(function(data){
+            $.get("Search/LiveSearchSearchAllGuest.php", {term: inputVal}).done(function(data){
                 // Display the returned data in browser
                 resultDropdown.html(data);
             });

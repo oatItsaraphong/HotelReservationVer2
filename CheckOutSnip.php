@@ -27,7 +27,7 @@ $(document).ready(function()
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length)
         {
-            $.get("LiveSearchCheckIn.php", {term: inputVal}).done(function(data){
+            $.get("Search/LiveSearchCheckIn.php", {term: inputVal}).done(function(data){
                 // Display the returned data in browser
                 resultDropdown.html(data);
             });
@@ -52,19 +52,29 @@ $(document).ready(function()
     <div id="wrapper">
         <div class="search-box">
         <input type="text" autocomplete="off" placeholder="Search Name..." />
+        <p>--------------------------------------------</p>
         <div class="result"></div>
         </div>
-
 
         <h2> Check Out</h2>
         <br>
 
-    <?php
-        echo "TEST  <br>";
-        echo $_SESSION["User"];
-        echo $_SESSION["Pass"];
-        //echo $_SESSION["Link"];
-    ?>
+        <form action="CheckOutPayment.php" method="post">
+            <div class='panel panel-danger'>
+                <div class='panel-heading'> Check Out </div>
+                <div class='panel-body'>
+                    <div class="form-group">
+                        <label for="CheckOutID">ID to Check Out: </label>
+                        <input type="number" class="form-control" name="CheckOutID" placeholder="ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="DiscountInfo">Discount Or Additional Payment(- to discount/  none to additinal): </label>
+                        <input type="number" class="form-control" name="DiscountInfo" placeholder="100/-100" required>
+                    </div>
+                    <input type='submit' class='btn btn-block btn-danger' value="Check Out">
+                </div>
+            </div>
+        </form>
         <table width=100% height=30 bgcolor="blue"><tr></tr></table>
 
     </div>

@@ -22,12 +22,30 @@ session_start();
 <body>
 	<div>
 	<?php
-	echo $_POST["feededUser"];
-	echo $_POST["feededPass"];
+
+	$User = 0;
+	$Pass = 0;
+	echo $_POST['DateInC'];
+	//check to use session or post
+	if(is_null($_SESSION['User']))
+	{
+		if(is_null($_POST['feededUser']))
+		{
+			exit("Invalid Access");
+		}
+		$User = $_POST['feededUser'];
+		$Pass = $_POST['feededPass'];
+
+	}
+	else
+	{
+		$User = $_SESSION['User'];
+		$Pass = $_SESSION['Pass'];
+	}
 
 	header('Content-Type: text/html; charset=utf8');
 	require "configHotel.php";
-	$link = LoginDB($_POST["feededUser"],$_POST["feededPass"]);
+	$link = LoginDB($User,$Pass);
 	if($link == 0)
 	{
 		echo "wrong";
@@ -35,8 +53,8 @@ session_start();
 	require "functionUse.php";
 	mysqli_set_charset($link,"utf8");
 
-	$_SESSION["User"] = $_POST["feededUser"];
-	$_SESSION["Pass"] = $_POST["feededPass"];
+	$_SESSION["User"] = $User;
+	$_SESSION["Pass"] =$Pass;
 
 	$_SESSION["Link"] = $link;
 	?>
