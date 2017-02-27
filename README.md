@@ -15,7 +15,7 @@ MainPage.php
 		- LiveSearchSearchAllGuest.php
 	- CheckInSnip.php -> CheckInConfirm.php
 		- LiveSearchReserved.php
-	- CheckOutSnip -> CheckOutPayment.php -> ChechOutConfirm
+	- CheckOutSnip -> CheckOutPayment.php -> ChechOutConfirm.php
 		- LiveSearchCheckIn.php
 
 	- SearchAllGuest.php
