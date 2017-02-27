@@ -7,9 +7,9 @@ contain: html, php, javascript
 
 Map
 
-Index.php
-|
-MainPage.php
+-Index.php
+
+-MainPage.php
 
 	- AddGuest.html -> AddGuestInsert.php
 
