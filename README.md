@@ -39,14 +39,14 @@ Additinal Code:
 Input for Search Type
 
 - LiveSearchSearchAllGuest.php
-		- GuestName (partial)
-		- Tel (partial)
-		- Email (partial)
+	- GuestName (partial)
+	- Tel (partial)
+	- Email (partial)
 
 - LiveSearchReserved.php
-		- GuestName (partial)
+	- GuestName (partial)
 		
 - LiveSearchCheckIn.php
-		- Room Number (exact)
+	- Room Number (exact)
 
 
