@@ -12,9 +12,7 @@ session_start();
 
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
@@ -25,20 +23,31 @@ session_start();
 
 	$User = 0;
 	$Pass = 0;
-	echo $_POST['DateInC'];
+	//echo $_POST['DateInC'];
 	//check to use session or post
+	if(!is_null($_POST['feededUser']))
+	{
+		session_destroy();
+		//exit("Invalid Access");
+		session_start();
+	}
+
 	if(is_null($_SESSION['User']))
 	{
 		if(is_null($_POST['feededUser']))
 		{
 			exit("Invalid Access");
 		}
+
 		$User = $_POST['feededUser'];
 		$Pass = $_POST['feededPass'];
 
 	}
 	else
 	{
+		//echo $_SESSION['User'];
+		//echo $_SESSION['Pass'];
+
 		$User = $_SESSION['User'];
 		$Pass = $_SESSION['Pass'];
 	}
@@ -57,14 +66,16 @@ session_start();
 	$_SESSION["Pass"] =$Pass;
 
 	$_SESSION["Link"] = $link;
+
+
 	?>
 	</div>
 
 	<div class="col-sm-6 col-md-4 col-lg-3 MainNAV">
 		<button type="button" id="AddGuestBTN" class="btn-block fit btn btn-primary">Add Guest</button>
 		<button type="button" id="ReservationBTN" class="btn-block btn btn-primary">Reservation</button>
-		<button type="button" id="CheckInBTN" class="btn-block btn btn-primary">Check In</button>
-		<button type="button" id="CheckOutBTN" class="btn-block btn btn-warning">Check Out</button>
+		<button type="button" id="CheckInBTN" class="btn-block btn btn-success">Check In</button>
+		<button type="button" id="CheckOutBTN" class="btn-block btn btn-danger">Check Out</button>
 		<br>
 		<button type="button" id="SearchAllGuestBTN" class="btn-block btn btn-warning">SearchAllGuest</button>
 	</div>

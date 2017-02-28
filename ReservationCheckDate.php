@@ -90,7 +90,7 @@ $(document).ready(function()
                         <label for="Additional">Comment: </label>
                         <input type="text" class="form-control" name="Additional" placeholder="....." >
                     </div>
-                    <input type='submit' value="Next" class="checkRoom">
+                    <input type='submit' value="Next"  class='btn btn-block btn-primary' value="Reserve">
                 </div>
             </div>
         </form>

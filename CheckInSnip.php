@@ -67,7 +67,7 @@ $(document).ready(function()
                         <label for="RsvpID">Reservation ID: </label>
                         <input type="number" class="form-control" name="RsvpID" placeholder="ID" required>
                     </div>
-                    <input type='submit' value="Check In">
+                    <input type='submit' class='btn btn-block btn-success' value="Check In">
                 </div>
             </div>
         </form>

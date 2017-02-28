@@ -29,12 +29,14 @@ $(function(){
 		$('.MainBODY').load('SearchAllGuest.php');
 	});
 
+	/*
 	$('.checkRoom').click(function(){
 		console.log('$_POST["DateIn"]');
 		//$('.MainBODY').empty();
 
 		$('.MainBODY').load('CheckOutSnip.php');
 	});
+	*/
 
 	
 });
