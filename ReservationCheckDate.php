@@ -79,7 +79,7 @@ $(document).ready(function()
                         <input type="date" class="form-control" name="DateOutC" placeholder="mm/dd/yyyy" required>
                     </div>
                     <div class="form-group">
-                        <label for="NumCustomer">Number of Customers: </label>
+                        <label for="NumCustomer">Number of Guests: </label>
                         <input type="Number" class="form-control" name="NumCustomer" placeholder="....." required>
                     </div>
                     <div class="form-group">
