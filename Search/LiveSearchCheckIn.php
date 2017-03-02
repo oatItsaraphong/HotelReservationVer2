@@ -68,5 +68,5 @@
     }
 
     // close connection
-    mysqli_close($link);
+    mysqli_close($Rlink);
 ?>

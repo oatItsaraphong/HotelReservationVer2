@@ -22,6 +22,7 @@
 
 <?php
 	require "configHotel.php";
+	require "functionUse.php";
 
 	//echo $_SESSION['User'];
 	if((is_null($_POST['DateInC'])) 
@@ -46,9 +47,21 @@
 	$_SESSION['FromInfo'] = $_POST['FromInfo'];
 	$_SESSION['Additional'] = $_POST['Additional'];
 
+	//$test = $_SESSION['DateIn']->$diff($_SESSION['DateOut']);
+
     $ID = $_SESSION['ID'];
     $InDate = date('Y-m-d', strtotime($_SESSION['DateIn']));
 	$OutDate= date('Y-m-d', strtotime($_SESSION['DateOut']));
+
+	/*
+	echo $InDate;
+	echo $OutDate;
+	echo "<br>--------------";
+	
+	$diff = _Cal_Day($InDate,$OutDate);
+	echo $diff;
+	echo "<br>--------------";
+	*/
 	
 	$sql=	"SELECT RoomIDNum, NumberOfBed, Type
 		FROM RoomTable
@@ -112,7 +125,7 @@
 		}
 		echo "</select>";
 		echo "</td>";
-		echo "<td><button type='submit'>Choose Room</input></td>";
+		echo "<td><button type='submit class='btn btn-block btn-info'>Choose Room</input></td>";
 		echo "</tr>";
 	
 		echo "</form>";

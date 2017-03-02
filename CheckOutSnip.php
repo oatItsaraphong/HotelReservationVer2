@@ -51,7 +51,7 @@ $(document).ready(function()
 <body>
     <div id="wrapper">
         <div class="search-box">
-        <input type="text" autocomplete="off" placeholder="Search Name..." />
+        <input type="text" autocomplete="off" placeholder="Search Room Number" />
         <p>--------------------------------------------</p>
         <div class="result"></div>
         </div>

@@ -28,7 +28,7 @@ session_start();
 	if(!is_null($_POST['feededUser']))
 	{
 		session_destroy();
-		//exit("Invalid Access");
+		echo "LogIn 1";
 		session_start();
 	}
 
@@ -45,8 +45,8 @@ session_start();
 	}
 	else
 	{
-		//echo $_SESSION['User'];
-		//echo $_SESSION['Pass'];
+		echo $_SESSION['User'];
+		echo $_SESSION['Pass'];
 
 		$User = $_SESSION['User'];
 		$Pass = $_SESSION['Pass'];
@@ -57,7 +57,10 @@ session_start();
 	$link = LoginDB($User,$Pass);
 	if($link == 0)
 	{
-		echo "wrong";
+		echo "Wrong UserName";
+		echo "<a href='index.php' type='button' class='btn-block btn btn-warning'>Back to Login</a>";
+		exit();
+
 	}
 	require "functionUse.php";
 	mysqli_set_charset($link,"utf8");
