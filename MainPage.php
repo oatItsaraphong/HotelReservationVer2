@@ -28,7 +28,7 @@ session_start();
 	if(!is_null($_POST['feededUser']))
 	{
 		session_destroy();
-		echo "LogIn 1";
+		//echo "LogIn 1";
 		session_start();
 	}
 
@@ -45,12 +45,15 @@ session_start();
 	}
 	else
 	{
-		echo $_SESSION['User'];
-		echo $_SESSION['Pass'];
+		//echo $_SESSION['User'];
+		//echo $_SESSION['Pass'];
 
 		$User = $_SESSION['User'];
 		$Pass = $_SESSION['Pass'];
 	}
+
+	echo $_SESSION['User'];
+	echo $_SESSION['Pass'];
 
 	header('Content-Type: text/html; charset=utf8');
 	require "configHotel.php";
@@ -82,7 +85,19 @@ session_start();
 		<button type="button" id="CheckOutBTN" class="btn-block btn btn-danger">Check Out</button>
 		<br>
 		<button type="button" id="SearchAllGuestBTN" class="btn-block btn btn-warning">SearchAllGuest</button>
+
+
+		<?php
+			$per = CheckPermission($_SESSION['User'],$_SESSION['Pass'],$link);
+			if($per == 22)
+			{
+				echo "<br><br>";
+				echo "<br><button type='button' id='ReportBTN' class='btn-block btn btn-warning'>Report By Date</button>";
+			}
+		?>
 	</div>
+
+
 
 	<div class="MainBODY col-sm-6 col-md-8 col-lg-9 "></div>
 	<script src="code/sample.js" type="text/javascript"></script>

@@ -41,7 +41,7 @@ function CloseLint($inLink){
 function ExamPassword($inUser, $inPass, $inLink){
 
 	
-	$sql = "SELECT UserName, Password, Permission FROM EmployeeTable WHERE UserName ='$inUser' AND Password = '$inPass'";
+	$sql = "SELECT UserName, Password FROM EmployeeTable WHERE UserName ='$inUser' AND Password = '$inPass'";
 
 	$result = mysqli_query($inLink,$sql);
 
@@ -63,17 +63,54 @@ function ExamPassword($inUser, $inPass, $inLink){
 		}
 	}
 
-	/*
-	//add a permissionto the user
-	$out = mysqli_fetch_array($result);
-	if($out['Permission'] == 2)
-	{
-		echo "<button type='button' id='CheckOutBTN' class='btn-block btn btn-danger'>Admin</button>";
-		return 22;
-	}
-	*/
 
 	return 1;
 
 }
+
+//-------------------------------------------
+function CheckPermission($inUser2, $inPass2, $inLink2){
+
+	
+	$sql2 = "SELECT UserName, Password, Permission FROM EmployeeTable WHERE UserName ='$inUser2' AND Password = '$inPass2'";
+
+	$result = mysqli_query($inLink2,$sql2);
+
+	if($result == false)
+	{
+		echo "fail";
+		return 0;
+	}
+	else
+	{
+		$test = mysqli_num_rows($result);
+		if($test == 0)
+		{
+			echo "Unknow account";
+			return 0;
+		}
+
+	//add a permission to the user
+		$out = mysqli_fetch_array($result);
+		//return 1;
+		//check for admin
+		
+		if($out['Permission'] == 2)
+		{
+			echo $out['UserName'];
+			//Admin Code 22
+			return 22;
+		}
+		else
+		{
+			//Presant Code 1
+			return 1;
+		}
+	
+	}
+}
+
+
+
+
 ?>

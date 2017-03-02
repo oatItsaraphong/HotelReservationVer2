@@ -29,6 +29,10 @@ $(function(){
 		$('.MainBODY').load('SearchAllGuest.php');
 	});
 
+	$('#ReportBTN').click(function(){
+		$('.MainBODY').load('Report.php');
+	});
+
 	/*
 	$('.checkRoom').click(function(){
 		console.log('$_POST["DateIn"]');
