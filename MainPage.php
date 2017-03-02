@@ -62,6 +62,7 @@ session_start();
 		exit();
 
 	}
+
 	require "functionUse.php";
 	mysqli_set_charset($link,"utf8");
 

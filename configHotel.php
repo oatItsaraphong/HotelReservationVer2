@@ -41,7 +41,7 @@ function CloseLint($inLink){
 function ExamPassword($inUser, $inPass, $inLink){
 
 	
-	$sql = "SELECT UserName, Password FROM EmployeeTable WHERE UserName ='$inUser' AND Password = '$inPass'";
+	$sql = "SELECT UserName, Password, Permission FROM EmployeeTable WHERE UserName ='$inUser' AND Password = '$inPass'";
 
 	$result = mysqli_query($inLink,$sql);
 
@@ -62,6 +62,18 @@ function ExamPassword($inUser, $inPass, $inLink){
 			return 0;
 		}
 	}
+
+	/*
+	//add a permissionto the user
+	$out = mysqli_fetch_array($result);
+	if($out['Permission'] == 2)
+	{
+		echo "<button type='button' id='CheckOutBTN' class='btn-block btn btn-danger'>Admin</button>";
+		return 22;
+	}
+	*/
+
 	return 1;
+
 }
 ?>
